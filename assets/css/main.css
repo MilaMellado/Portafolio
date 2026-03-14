@@ -1,0 +1,57 @@
+/* 1. MODO OSCURO (Por defecto) */
+:root {
+  --text-primary: #ffffff; /* Texto blanco */
+  --bg-base-1: #1a1a1a;    /* Fondo oscuro 1 */
+  --bg-base-2: #242424;    /* Fondo oscuro 2 */
+  
+  /* Los colores de los puntos neón */
+  --dot-1: #ff00cc;
+  --dot-2: #00ffcc;
+  --dot-3: #3300ff;
+}
+
+/* 2. MODO CLARO (Nuxt activa esta clase con el botón) */
+.light {
+  --text-primary: #1a1a1a; /* Texto casi negro */
+  --bg-base-1: #f4f4f9;    /* Fondo gris muy claro */
+  --bg-base-2: #e6e6f0;    /* Fondo gris un poco más oscuro */
+  
+  /* Puntos con colores un poco más suaves para que no lastimen la vista */
+  --dot-1: #ff66d9;
+  --dot-2: #00e6b8;
+  --dot-3: #6666ff;
+}
+
+/* 3. APLICAMOS EL COLOR AL TEXTO GLOBAL */
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, sans-serif;
+  transition: color 0.4s ease; /* Transición suave en el texto */
+}
+
+/* 4. TU FONDO ANIMADO INTELIGENTE */
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /* Aquí usamos las variables en lugar de los colores fijos */
+  background: 
+    radial-gradient(circle at 100% 50%, var(--dot-1) 0% 2%, var(--dot-2) 3% 5%, transparent 6%),
+    radial-gradient(circle at 0% 50%, var(--dot-1) 0% 2%, var(--dot-2) 3% 5%, transparent 6%),
+    radial-gradient(ellipse at 50% 0%, var(--dot-3) 0% 3%, transparent 4%) 10px 10px,
+    radial-gradient(circle at 50% 50%, var(--dot-2) 0% 1%, var(--dot-1) 2% 3%, var(--dot-3) 4% 5%, transparent 6%) 20px 20px,
+    repeating-linear-gradient(45deg, var(--bg-base-1), var(--bg-base-1) 10px, var(--bg-base-2) 10px, var(--bg-base-2) 20px);
+  background-size: 50px 50px, 50px 50px, 40px 40px, 60px 60px, 100% 100%;
+  animation: shift 15s linear infinite;
+  transition: background 0.4s ease; /* Transición suave en el fondo */
+}
+
+@keyframes shift {
+  0% { background-position: 0 0, 0 0, 10px 10px, 20px 20px, 0 0; }
+  100% { background-position: 50px 50px, -50px -50px, 60px 60px, 80px 80px, 0 0; }
+}
