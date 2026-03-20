@@ -1,5 +1,10 @@
+// nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/color-mode'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    'nuxt-icon',
+    '@nuxtjs/color-mode'
+  ],
   colorMode: {
     preference: 'system',
     fallback: 'dark',
@@ -10,9 +15,11 @@ export default defineNuxtConfig({
     head: {
       title: 'Web Developer Portfolio',
       link: [
-        { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' }
+        { 
+          rel: 'stylesheet', 
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' 
+        }
       ]
     }
   }
 })
-
