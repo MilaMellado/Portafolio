@@ -1,16 +1,16 @@
+index.vue
+
 <template>
-  
-  <div>
-    <ProfileCard />
+  <div class="hero">
+    
+    <!-- Comentamos ProfileCard temporalmente -->
+    <!-- <ProfileCard /> -->
+
+    <div class="viewer-section">
+      <ClientOnly>
+        <LazyStlViewer />
+      </ClientOnly>
+    </div>
+
   </div>
-
 </template>
-
-<style scoped>
-.hero {
-  text-align: center;
-  padding-top: 15vh;
-  position: relative;
-  z-index: 1; /* Para que el texto quede por encima del fondo */
-}
-</style>

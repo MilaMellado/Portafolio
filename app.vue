@@ -1,20 +1,23 @@
 <script setup lang="ts">
-// Paso 1: Definimos los datos de tus proyectos REALES aquí en app.vue
+// Importación explícita (para evitar que fallos en componentes rompan todo)
+import ProfileCard from '~/components/ProfileCard.vue'
+
+// Tus proyectos REALES
 const misProyectos = [
   {
     title: 'Analizador de Datos AI',
     description: 'Implementación de modelos predictivos y visualización de datos complejos utilizando Python y Scikit-Learn.',
     icon: 'fa-brands fa-python',
-    iconColor: 'text-yellow-500', // Python color
+    iconColor: 'text-yellow-500', 
     tags: ['Python', 'AI', 'Machine Learning', 'Data Science'],
-    githubUrl: 'https://github.com/tu-usuario/proyecto-python', // Reemplaza con tus enlaces
+    githubUrl: 'https://github.com/tu-usuario/proyecto-python', 
     liveUrl: 'https://tu-demo-python.com'
   },
   {
     title: 'Frontend Portafolio Moderno',
     description: 'Desarrollo de una interfaz de usuario reactiva y optimizada con Nuxt 3, Vue 3 y Tailwind CSS.',
     icon: 'fa-brands fa-vuejs',
-    iconColor: 'text-emerald-500', // Vue color
+    iconColor: 'text-emerald-500', 
     tags: ['Nuxt 3', 'Vue.js', 'TypeScript', 'Tailwind', 'SSR'],
     githubUrl: 'https://github.com/tu-usuario/proyecto-nuxt',
     liveUrl: 'https://tu-demo-nuxt.com'
@@ -23,10 +26,9 @@ const misProyectos = [
     title: 'API Backend Escalable',
     description: 'Construcción de una API segura con Node.js, Express, autenticación JWT y conexión a MongoDB.',
     icon: 'fa-brands fa-node-js',
-    iconColor: 'text-green-500', // Node color
+    iconColor: 'text-green-500', 
     tags: ['Node.js', 'Express', 'Backend', 'API', 'MongoDB'],
     githubUrl: 'https://github.com/tu-usuario/proyecto-node'
-    // liveUrl no se define aquí, el botón Demo no aparecerá
   }
 ];
 </script>
@@ -38,10 +40,15 @@ const misProyectos = [
     
     <main class="relative z-10 pt-16">
       
+      <!-- SECCIÓN 1: INICIO (Tu tarjeta de perfil) -->
       <section id="inicio" class="min-h-screen flex justify-center items-center p-4">
-        <ProfileCard />
+        <!-- Envolvemos en ClientOnly temporalmente para que si hay error de Iconos, no rompa el fondo -->
+        <ClientOnly>
+          <ProfileCard />
+        </ClientOnly>
       </section>
 
+      <!-- SECCIÓN 2: PROYECTOS (Con tu Visor 3D incluido) -->
       <section id="proyectos" class="min-h-screen py-20 px-4 flex flex-col items-center">
         <div class="max-w-6xl w-full">
           
@@ -54,6 +61,25 @@ const misProyectos = [
             </p>
           </div>
 
+          <!-- ==== AQUÍ EMPIEZA LA INTEGRACIÓN DE TU TAREA 3D ==== -->
+          <div class="w-full mb-16">
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-slate-800 dark:text-white">Visor 3D Interactivo</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400">Implementación de Code Splitting y Lazy Loading en Nuxt 3 (Tarea 1 Tema 4)</p>
+            </div>
+            
+            <ClientOnly>
+              <LazyStlViewer />
+              <template #fallback>
+                <div class="w-full h-[500px] flex items-center justify-center bg-gray-100 dark:bg-gray-800 rounded-xl">
+                  <span class="text-gray-500">Preparando componente 3D...</span>
+                </div>
+              </template>
+            </ClientOnly>
+          </div>
+          <!-- ==== AQUÍ TERMINA TU TAREA 3D ==== -->
+
+          <!-- Cuadrícula de Proyectos Normales -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             <ProjectCard 
               v-for="(p, index) in misProyectos" 
@@ -65,6 +91,7 @@ const misProyectos = [
         </div>
       </section>
 
+      <!-- SECCIÓN 3: CONTACTO -->
       <section id="contacto" class="min-h-screen flex justify-center items-center p-4">
         <ContactForm />
       </section>
