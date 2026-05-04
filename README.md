@@ -1,75 +1,18 @@
-# Nuxt Minimal Starter
+🌐 Portafolio Web – Camila Arellano
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Aplicación web desarrollada como portafolio profesional para mostrar proyectos, habilidades y permitir contacto directo. Este proyecto fue construido utilizando tecnologías modernas de desarrollo frontend.
 
-## Setup
+🧠 Descripción del Proyecto
 
-Make sure to install dependencies:
+Este portafolio permite:
 
-```bash
-# npm
-npm install
+- Mostrar información personal y profesional
+- Visualizar proyectos destacados (Frontend, IA, Backend)
+- Contactar mediante un formulario funcional
+- Interfaz moderna y responsiva
 
-# pnpm
-pnpm install
+Se observan las secciones principales:
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Inicio (perfil profesional)
+- Proyectos destacados
+- Formulario de contacto
